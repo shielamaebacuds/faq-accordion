@@ -1,38 +1,174 @@
 .App {
-  text-align: center;
+  --white: hsl(0, 0%, 100%);
+  --light-pink: hsl(275, 100%, 97%);
+  --grayish-purple: hsl(292, 16%, 49%);
+  --dark-purple: hsl(292, 42%, 14%);
+  --light-purple: #ad28eb;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*FONT*/
+
+@font-face {
+  font-family: WorkSans-Bold;
+  src: url("assets/fonts/static/WorkSans-Bold.ttf");
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: WorkSans-Regular;
+  src: url("assets/fonts/static/WorkSans-Regular.ttf");
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@font-face {
+  font-family: WorkSans-SemiBold;
+  src: url("assets/fonts/static/WorkSans-SemiBold.ttf");
+}
+
+.App {
+  height: 100vh;
+  background-color: var(--light-pink);
+  position: relative;
+}
+
+/*FONT*/
+
+.banner {
+  height: 40vh;
+  background-image: url("assets/images/background-pattern-desktop.svg");
+  background-size: cover;
+}
+
+.main-container {
+  min-height: 520px;
+  height: fit-content;
+  width: 600px;
+  background-color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 100px -50px var(--grayish-purple);
+  border: none;
+}
+
+.main-header {
+  margin: 20px 0;
+  font-family: WorkSans-Bold;
+  font-size: 56px;
+  color: var(--dark-purple);
+}
+
+.main-header::before {
+  background-image: url("assets/images/icon-star.svg");
+  background-size: cover;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  content: "";
+  margin-right: 20px;
+}
+
+.faq-container {
+  padding: 25px 0;
+  border-bottom: 1px solid var(--light-pink);
+}
+
+.faq-question {
+  font-family: WorkSans-SemiBold;
+  font-size: 18px;
+  color: var(--dark-purple);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.faq-question:hover {
+  color: var(--light-purple);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.faq-question:focus {
+  color: var(--light-purple);
+  outline: none;
+}
+
+.faq-container:nth-last-child(1) {
+  border: none;
+}
+
+.button {
+  height: 30px;
+  width: 30px;
+  background-image: url("assets/images/icon-plus.svg");
+  background-size: cover;
+  cursor: pointer;
+}
+
+.button.open {
+  background-image: url("assets/images/icon-minus.svg");
+}
+
+.faq-answer {
+  color: var(--grayish-purple);
+  font-family: WorkSans-Regular;
+  line-height: 25px;
+  margin: 10px 0;
+}
+
+@media screen and (min-width: 320px) and (max-width: 400px) {
+  .banner {
+    background-image: url("assets/images/background-pattern-mobile.svg");
+    height: 30vh;
   }
-  to {
-    transform: rotate(360deg);
+
+  .main-container {
+    width: 300px;
+    padding: 20px 20px;
+  }
+
+  .main-header {
+    font-size: 30px;
+  }
+
+  .main-header::before {
+    width: 30px;
+    height: 30px;
+  }
+
+  .faq-container span {
+    max-width: 220px;
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 401px) and (max-width: 500px) {
+  .banner {
+    background-image: url("assets/images/background-pattern-mobile.svg");
+    height: 30vh;
+  }
+
+  .main-container {
+    width: 380px;
+    padding: 20px 20px;
+  }
+
+  .main-header {
+    font-size: 40px;
+  }
+
+  .faq-container span {
+    max-width: 260px;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 700px) {
+  .main-container {
+    width: 480px;
+    padding: 20px 20px;
   }
 }
