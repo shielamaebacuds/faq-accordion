@@ -14,7 +14,6 @@ function FAQList() {
   const [openFAQ, setOpenFAQ] = useState();
 
   function handleOpenFAQ(faq) {
-    console.log("GAGOL :", faq);
     if (faq.id !== openFAQ?.id) setOpenFAQ(() => faq);
     else setOpenFAQ(null);
   }
